@@ -10,8 +10,8 @@ function Home() {
         try {
             const response = await fetch(`${process.env.REACT_APP_SERVER}`)
             const data = await response.json();
-            console.log(data.results);
-            setData(data.results);
+            console.log(data);
+            setData(data);
         } catch (error) {
       //      console.log("error", error);
         }
