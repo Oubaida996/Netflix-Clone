@@ -14,7 +14,7 @@ function MovieList(props) {
 
                         <>
                         {/* {console.log(data.id ,"dddddddddddddddd")} */}
-                            <Movie key={data.id} data={data} />
+                            <Movie key={data.id} data={data} updateCommentInMovie={props.updateCommentInMovie} />
                         </>
 
                     );

@@ -27,24 +27,28 @@ function Movie(props) {
 
 
 
+ 
+
 
     let data = props.data;
     return (
         <>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={data.poster_path} />
+            <Card style={{ width: '18rem' ,margin:"10px"  }}>
+                <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} />
                 <Card.Body>
                     <Card.Title>{data.title}</Card.Title>
                     <Card.Text>
                         {data.overview}
                     </Card.Text>
+                    <Card.Text>
+                        comment:{data.comment ? data.comment : "add your comment"}
+                    </Card.Text>
                     {/* onClick recive call back function ()=> nameFun(dddd) */}
-                    <Button style={{ margin: "5px", }} variant="primary" onClick={()=>handleShowModle(data)} >Modal Movie</Button>
-                    <Button style={{ backgroundColor: "purple" }} variant="primary">Add to Fav.</Button>
+                    <Button style={{ margin: "5px", }} variant="primary" onClick={() => handleShowModle(data)} >Modal Movie</Button>
                 </Card.Body>
             </Card>
             {
-                chosenMovie && (< ModalMovie show={show} handleClose={handleClose} chosenMovie={chosenMovie} />)
+                chosenMovie && (< ModalMovie show={show} handleClose={handleClose} chosenMovie={chosenMovie} updateCommentInMovie={props.updateCommentInMovie} />)
             }
         </>
 
